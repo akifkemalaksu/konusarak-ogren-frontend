@@ -1,0 +1,57 @@
+<form [formGroup]="registerForm" *ngIf="registerForm">
+  <!-- Section: Design Block -->
+  <section class="">
+    <!-- Jumbotron -->
+    <div class="px-4 py-5 px-md-5 text-center text-lg-start">
+      <div class="container">
+        <div class="row gx-lg-5 justify-content-md-center">
+          <div class="col-lg-6 mb-5 mb-lg-0">
+            <div class="card">
+              <div class="card-header text-center">
+                <h2>Kullanıcı Kayıt</h2>
+              </div>
+              <div class="card-body py-5 px-md-5">
+                <!-- First name input -->
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="firstName">İsim</label>
+                  <input type="text" id="firstName" formControlName="firstName" class="form-control" />
+                </div>
+
+                <!-- Last name input -->
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="lastName">Soyisim</label>
+                  <input type="text" id="lastName" formControlName="lastName" class="form-control" />
+                </div>
+
+                <!-- Username input -->
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="username">Kullanıcı Adı</label>
+                  <input type="text" id="username" formControlName="username" class="form-control" />
+                </div>
+
+                <!-- Password input -->
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="password">Şifre</label>
+                  <input type="password" id="password" formControlName="password" class="form-control" />
+                </div>
+
+                <!-- Submit button -->
+                <div class="float-end">
+                  <button type="submit" class="btn btn-primary btn-block mb-4" routerLink="/login">
+                    Geri
+                  </button>
+
+                  <button type="submit" class="btn btn-primary btn-block mb-4 ms-2" (click)="register()">
+                    Kayıt Ol
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Jumbotron -->
+  </section>
+  <!-- Section: Design Block -->
+</form>

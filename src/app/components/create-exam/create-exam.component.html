@@ -1,0 +1,69 @@
+<form [formGroup]="createExamForm">
+  <div class="row mb-5">
+    <div class="col-sm-12">
+      <h2 class="text-center"> Sınav Oluşturma </h2>
+    </div>
+    <div class="col-sm-12 mt-4">
+      <select class="form-select" formControlName="topicPath" (change)="topicChange($event)">
+        <option value="{{topic.urlPath}}" *ngFor="let topic of mostRecentTopics">{{topic.title}}</option>
+      </select>
+    </div>
+    <div class="col-sm-12 mt-2">
+      <textarea class="form-control" id="content" rows="20" [ngModelOptions]="{standalone: true}" [(ngModel)]="content"
+        readonly></textarea>
+    </div>
+    <div class="col-sm-12 mt-4">
+      <div formArrayName="questions">
+        <div class="row justify-content-center mt-2" *ngFor="let question of questionArray(); let i = index;"
+          formGroupName="{{i}}">
+          <div class="col-sm-12">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" formControlName="questionText" attr.id="question-{{i}}">
+              <label class="text-center" attr.for="question-{{i}}">Soru</label>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="input-group">
+              <span class="input-group-text" attr.id="answer-a-{{i}}">A)</span>
+              <input type="text" class="form-control" formControlName="answera" placeholder="A)" aria-label="A)"
+                attr.aria-describedby="answer-a-{{i}}">
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="input-group">
+              <span class="input-group-text" attr.id="answer-b-{{i}}">B)</span>
+              <input type="text" class="form-control" formControlName="answerb" placeholder="B)" aria-label="B)"
+                attr.aria-describedby="answer-b-{{i}}">
+            </div>
+          </div>
+          <div class="col-sm-6 mt-2">
+            <div class="input-group">
+              <span class="input-group-text" attr.id="answer-c-{{i}}">C)</span>
+              <input type="text" class="form-control" formControlName="answerc" placeholder="C)" aria-label="C)"
+                attr.aria-describedby="answer-c-{{i}}">
+            </div>
+          </div>
+          <div class="col-sm-6 mt-2">
+            <div class="input-group">
+              <span class="input-group-text" attr.id="answer-d-{{i}}">D)</span>
+              <input type="text" class="form-control" formControlName="answerd" placeholder="D)" aria-label="D)"
+                attr.aria-describedby="answer-d-{{i}}">
+            </div>
+          </div>
+          <div class="col-sm-6  mt-2">
+            <select class="form-select" formControlName="rightAnswer" aria-placeholder="Doğru cevap seç.">
+              <option value="">Doğru cevap seç.</option>
+              <option value="answera">A</option>
+              <option value="answerb">B</option>
+              <option value="answerc">C</option>
+              <option value="answerd">D</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 mt-4 text-center">
+      <button type="button" class="btn btn-primary btn-lg" (click)="create()">SINAV OLUŞTUR</button>
+    </div>
+  </div>
+</form>
