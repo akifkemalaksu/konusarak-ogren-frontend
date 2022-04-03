@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
   {
     path: "", component: HomeComponent, children: [
+      { path: "", component: ExamComponent },
       { path: "exams", component: ExamComponent },
       { path: "exam/create", component: CreateExamComponent },
       { path: "exam/:examId/take", component: TakeExamComponent },

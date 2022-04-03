@@ -1,0 +1,11 @@
+.success{
+  background-color: #96be25;
+}
+
+.failure{
+  background-color: #be4d25;
+}
+.topic-content{
+  height: 500px;
+  overflow-y: auto;
+}

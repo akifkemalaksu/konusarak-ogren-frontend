@@ -1,3 +1,4 @@
+import { ResultExamModel } from './../models/responseModels/resultExamModel';
 import { AnswerQuestionRequestModel } from './../models/requestModels/answerQuestionRequestModel';
 import { TakeExamResponseModel } from './../models/responseModels/takeExamResponseModel';
 import { ResponseModel } from './../models/responseModels/responseModel';
@@ -49,5 +50,14 @@ export class ExamService {
   solveExam(examAnswers: AnswerQuestionRequestModel[]) {
     let action = "SolveExam";
     return this.http.post<ResponseModel>(`${environment.apiUrl}${this.method}/${action}`, examAnswers);
+  }
+
+  resultExam(id: number, userId: number): Observable<ResponseDataModel<ResultExamModel>> {
+    let action = "ResultExam";
+    let queryParams = new HttpParams();
+    queryParams = queryParams.append("userId", userId);
+    return this.http.get<ResponseDataModel<ResultExamModel>>(`${environment.apiUrl}${this.method}/${action}/${id}`, {
+      params: queryParams
+    });
   }
 }

@@ -1,1 +1,32 @@
-<p>result-exam works!</p>
+<div class="row" *ngIf="resultExam">
+  <div class="col-sm-12 mt-4">
+    <h2 class="text-center"> {{resultExam.title}} </h2>
+  </div>
+  <div class="col-sm-12 mt-4">
+    <div class="card">
+      <div class="card-body topic-content">
+        {{resultExam.content}}
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-12 mt-4">
+    <div class="row justify-content-center mt-2" *ngFor="let question of resultExam.questions; let i = index;">
+      <div class="col-sm-12">
+        <h6>{{i + 1}}) {{question.questionText}}</h6>
+      </div>
+      <div class="row">
+        <div class="col-sm-6"
+          *ngFor="let answer of question.answers; let j = index">
+          <div class="card" [ngClass]="question.answerId === answer.id ? answer.isTrue ? 'success' : 'failure' : ''">
+            <div class="card-body">
+              {{getOption(j)}}) {{answer.answerText}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-12 mt-4 mb-4 text-center">
+    <button type="button" class="btn btn-primary btn-lg">SINAVI TAMAMLA</button>
+  </div>
+</div>
