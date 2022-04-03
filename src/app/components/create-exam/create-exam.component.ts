@@ -24,9 +24,10 @@ export class CreateExamComponent implements OnInit {
 
   constructor(
     private topicService: TopicService,
+    private examService: ExamService,
     private formBuilder: FormBuilder,
     private toastr: ToastrService,
-    private router:Router
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -102,13 +103,13 @@ export class CreateExamComponent implements OnInit {
         questions: questions
       } as CreateExamRequestModel;
 
-      this.topicService.createExam(exam).subscribe({
+      this.examService.createExam(exam).subscribe({
         next: response => {
           if (response.success) {
-            this.toastr.warning(response.message, "Başarılı!");
+            this.toastr.success(response.message, "Başarılı!");
             this.router.navigate(["exams"]);
           }
-          else{
+          else {
             this.toastr.warning(response.message, "Uyarı!");
           }
         },

@@ -1,3 +1,5 @@
+import { ResultExamComponent } from './components/result-exam/result-exam.component';
+import { TakeExamComponent } from './components/take-exam/take-exam.component';
 import { CreateExamComponent } from './components/create-exam/create-exam.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -11,7 +13,9 @@ const routes: Routes = [
   {
     path: "", component: HomeComponent, children: [
       { path: "exams", component: ExamComponent },
-      { path: "create-exam", component: CreateExamComponent },
+      { path: "exam/create", component: CreateExamComponent },
+      { path: "exam/:examId/take", component: TakeExamComponent },
+      { path: "exam/:examId/result", component: ResultExamComponent },
     ]
   },
   { path: "login", component: LoginComponent },

@@ -1,1 +1,23 @@
-<p>exam works!</p>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Başlık</th>
+      <th scope="col">Tarih</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let exam of exams; let i = index;">
+      <td>{{i + 1}}</td>
+      <td>{{exam.title}}</td>
+      <td>{{moment(exam.createDate).format("DD-MM-YYYY hh:mm")}}</td>
+      <td>
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-primary" (click)="ToExam(exam)">Sınava Gir</button>
+          <button type="button" class="btn btn-danger" (click)="Delete(exam)">Sil</button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>

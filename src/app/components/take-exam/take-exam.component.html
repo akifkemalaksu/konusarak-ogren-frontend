@@ -1,0 +1,43 @@
+<form [formGroup]="takeExamForm" *ngIf="takeExamForm">
+  <div class="row">
+    <div class="col-sm-12 mt-4">
+      <h2 class="text-center"> {{takeExam.title}} </h2>
+    </div>
+    <div class="col-sm-12 mt-4">
+      <div class="card">
+        <div class="card-body topic-content">
+          {{takeExam.content}}
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 mt-4">
+      <div formArrayName="questions">
+        <div class="row justify-content-center mt-2" *ngFor="let question of questionArray(); let i = index;"
+          formGroupName="{{i}}">
+          <div class="col-sm-12">
+            <h6>{{i + 1}}) {{getQuestionText(question.value.questionId)}}</h6>
+            <input type="hidden" formControlName="questionId">
+          </div>
+          <div class="row">
+            <div class="col-sm-6" *ngFor="let answer of answerArray(question.value.questionId); let j = index">
+              <div class="input-group">
+                <div class="input-group-text">
+                  {{getOption(j)}})
+                </div>
+                <div class="input-group-text">
+                  <input class="form-check-input mt-0" type="radio" value="{{answer.id}}"
+                    formControlName="answerId-{{question.value.questionId}}">
+                </div>
+                <input type="text" class="form-control" value="{{getAnswerText(question.value.questionId,answer.id)}}"
+                  aria-label="Text input with radio button" readonly>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 mt-4 mb-4 text-center">
+      <button type="button" class="btn btn-primary btn-lg" (click)="complete()">SINAVI TAMAMLA</button>
+    </div>
+  </div>
+</form>

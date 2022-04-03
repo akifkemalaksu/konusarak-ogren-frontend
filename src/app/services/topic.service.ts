@@ -24,9 +24,4 @@ export class TopicService {
     let action = "GetTopicFromWeb";
     return this.http.get<ResponseDataModel<TopicModel>>(`${environment.apiUrl}${this.method}/${action}/${path}`);
   }
-
-  createExam(createExam:CreateExamRequestModel):Observable<ResponseModel>{
-    let action = "CreateExam";
-    return this.http.post<ResponseModel>(`${environment.apiUrl}${this.method}/${action}`,createExam);
-  }
 }

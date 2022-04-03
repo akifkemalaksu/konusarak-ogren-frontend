@@ -8,7 +8,7 @@ import { NavbarMenu } from 'src/app/models/others/navbarMenu';
 })
 export class SideBarComponent implements OnInit {
   navbarMenus: NavbarMenu[] = [
-    { menu: "Sınav Oluştur", path: ["create-exam"], active: true },
+    { menu: "Sınav Oluştur", path: ["exam/create"], active: true },
     { menu: "Sınavlar", path: ["exams"], active: false },
   ];
   constructor() { }

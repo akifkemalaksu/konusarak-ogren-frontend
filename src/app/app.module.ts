@@ -15,6 +15,8 @@ import { CreateExamComponent } from './components/create-exam/create-exam.compon
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { HomeComponent } from './home/home.component';
 import { ExamComponent } from './components/exam/exam.component';
+import { TakeExamComponent } from './components/take-exam/take-exam.component';
+import { ResultExamComponent } from './components/result-exam/result-exam.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { ExamComponent } from './components/exam/exam.component';
     SideBarComponent,
     HomeComponent,
     ExamComponent,
+    TakeExamComponent,
+    ResultExamComponent,
   ],
   imports: [
     BrowserModule,
